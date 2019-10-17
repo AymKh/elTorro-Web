@@ -16,16 +16,17 @@ const check = () =>{
         errorBox.innerHTML = "Please type in your try";
         return false;
     }
+    // making sure the user doesn't time a wrong letter
 }
 
 
 let secs = 0;
 let mins = 0;
 
-    setInterval (() => {
-        secs ++;
-        formTimer = ("0" + mins).slice(-2) + " : " + ("0" + secs).slice(-2);;
-        console.log( formTimer );
-        if ( secs == 59 )
-        { mins ++ ; secs = -1 }
-    }, 1000 );
+setInterval (() => {
+    secs ++;
+    formTimer = ("0" + mins).slice(-2) + " : " + ("0" + secs).slice(-2);;
+    console.log( formTimer );
+    if ( secs == 59 )
+    { mins ++ ; secs = -1 }
+}, 1000 );
