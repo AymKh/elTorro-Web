@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    overflow: hidden;
+}
+/* keeps everything in the center */
+.container{
+    width: 900px;
+    height: 700px;
+    /* background: red; */
+    margin: 20px auto;
+}
+
+
+
+
+
+
+.grid{
+    /* background: yellow; */
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    grid-template-rows: repeat(12, 1fr);
+    grid-template-columns: 1.5fr 2fr;
+    grid-gap: 5px;
+}
+
+.timer{
+    border: 1px solid #000;
+    /* background: blueviolet; */
+    grid-column: 1/2;
+    grid-row: 1/3;
+}
+
+.scoreboard{
+    border: 1px solid #000;
+    /* background: rosybrown; */
+    grid-row: 3/-1;
+    grid-column: 1/2;
+}
+
+.display{
+    border: 1px solid #000;
+    /* background: red; */
+    grid-column: 2/3;
+    grid-row: 1/11;
+}
+
+#errorBox{
+    grid-row: 12/-1;
+    grid-column: 2/3;
+
+    border: 1px solid #000;
+    
+    text-align: center;
+    padding: 10px;
+    color: rgb(206, 45, 45);
+}
+
+form{
+    /* background: green; */
+    grid-row: 11/12;
+    grid-column: 2/3;    
+    /* padding: 10px 0px 0px 0px; */
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 5px;
+}
+
+input[type="text"]{
+    text-align: center;
+    font-size: 1.5em;
+}
