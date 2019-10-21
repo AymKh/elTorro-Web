@@ -97,7 +97,7 @@
 		srand((unsigned)time(NULL));
 
 
-		//unique random a
+		// unique random a
 		a = rand()%10;
 		random[0] = numbers[a];
 		int i=a;
@@ -106,7 +106,7 @@
 			numbers[i] = numbers[i+1];
 		}
 
-		//unique random b
+		// unique random b
 		b = rand()%9;
 		random[1] = numbers[b];
 		int j=b;
@@ -115,7 +115,7 @@
 			numbers[j] = numbers[j+1];
 		}
 
-		//unique random c
+		// unique random c
 		c = rand()%8;
 		random[2] = numbers[c];
 		int k=c;
@@ -124,7 +124,7 @@
 			numbers[k] = numbers[k+1];
 		}
 
-		//unique random d
+		// unique random d
 		d = rand()%7;
 		random[3] = numbers[d];
 		int l=d;
