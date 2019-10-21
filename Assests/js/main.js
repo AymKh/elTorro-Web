@@ -1,5 +1,5 @@
 
-// getting the userTry from the text input
+// getting DOM selectors
 const userTry = document.getElementById("userTry");
 const errorBox = document.getElementById("errorBox");
 const display = document.getElementById('display');
@@ -103,13 +103,26 @@ const form = document.querySelector('form');
     }
 
     // function that return number of Bs and Cs
-    function numCB(){
-        
-
-        return 0;
+    function numCB(random){
+        let testCows = 0; 
+        let testBulls = 0;
+        console.log(userTry.value[0],random)
+        for (let i=0; i<4 ; i++)
+        {
+            for (let j=0; j < 4 ; j++)
+             {   if (userTry.value[i] == random[j])
+                {
+                    testCows ++;
+                } else {
+                    testBulls ++;
+                }
+            }
+        }
+        console.log(testBulls,testCows)
+    
     }
 
-    // empty input returned else check if its uniqe
+    // empty input returned else check if its unique
     function testEmpty()
     {
         if (userTry.value === ""){
@@ -131,11 +144,13 @@ const form = document.querySelector('form');
 
     
     //  MAIN FUNCTION
+ 
     form.addEventListener('submit' , e =>{
         
         e.preventDefault();
+        
         testEmpty();
-        uniqueNumbers();
+        
         
 
     });
