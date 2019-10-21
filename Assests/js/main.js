@@ -58,6 +58,17 @@ const form = document.querySelector('form');
      	
     }
 
+    
+    // function that returns an string with a random number
+    function numRandom(){
+        let numbers=[0,1,2,3,4,5,6,7,8,9];
+        let random[];
+
+
+
+        return random;
+    }
+
     // function that return number of Bs and Cs
     function numCB(){
         
