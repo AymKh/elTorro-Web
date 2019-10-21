@@ -104,22 +104,29 @@ const form = document.querySelector('form');
 
     // function that return number of Bs and Cs
     function numCB(random){
+        if(userTry.value = "") return "empty value"; 
         let testCows = 0; 
         let testBulls = 0;
-        console.log(userTry.value[0],random)
+
+        // console.log(userTry.value[0],random)
         for (let i=0; i<4 ; i++)
         {
             for (let j=0; j < 4 ; j++)
-             {   if (userTry.value[i] == random[j])
-                {
-                    testCows ++;
-                } else {
-                    testBulls ++;
+             {   
+                 if (userTry.value[i] == random[j])
+                {     
+                    if( i == j )
+                    {
+                        testCows ++;
+                    } else {
+                        testBulls ++;
+                    }
                 }
             }
         }
+
         console.log(testBulls,testCows)
-    
+        
     }
 
     // empty input returned else check if its unique
