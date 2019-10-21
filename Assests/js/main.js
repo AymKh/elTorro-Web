@@ -135,11 +135,11 @@ const form = document.querySelector('form');
         if (userTry.value === ""){
             errorBox.innerHTML = "Type your guess !";   
             
-        }else{
-            if (testUnique() != 4){
+        } else if(testUnique() != 4){
+            
                 errorBox.innerHTML="Your try must be 4 unique digits!";                    
-                return true;
-            }
+        }else {
+            return true;
         }
     }
 
