@@ -130,15 +130,15 @@ const form = document.querySelector('form');
     }
 
     // empty input returned else check if its unique
-    function testEmpty()
+    function testForm()
     {
         if (userTry.value === ""){
             errorBox.innerHTML = "Type your guess !";   
             
         } else if(testUnique() != 4){
-            
-                errorBox.innerHTML="Your try must be 4 unique digits!";                    
-        }else {
+            errorBox.innerHTML="Your try must be 4 unique digits!";                    
+        
+        } else {
             return true;
         }
     }
@@ -152,12 +152,14 @@ const form = document.querySelector('form');
     
     //  MAIN FUNCTION
     let randMain = numRandom();
+    let trys = 0;
     form.addEventListener('submit' , e =>{
         
         e.preventDefault();
         
-        if (testEmpty()) 
-        {
+        if (testForm()) 
+        {   
+            trys++; 
             numCB(randMain);
         }
         
