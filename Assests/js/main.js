@@ -104,7 +104,7 @@ const form = document.querySelector('form');
 
     // function that return number of Bs and Cs
     function numCB(random){
-        if(userTry.value = "") return "empty value"; 
+        
         let testCows = 0; 
         let testBulls = 0;
 
@@ -117,15 +117,15 @@ const form = document.querySelector('form');
                 {     
                     if( i == j )
                     {
-                        testCows ++;
-                    } else {
                         testBulls ++;
+                    } else {
+                        testCows ++;
                     }
                 }
             }
         }
 
-        console.log(testBulls,testCows)
+        console.log(' Cows '+testCows+' Bulls '+testBulls)
         
     }
 
@@ -138,9 +138,9 @@ const form = document.querySelector('form');
         }else{
             if (testUnique() != 4){
                 errorBox.innerHTML="Your try must be 4 unique digits!";                    
+                return true;
             }
         }
-        
     }
 
 
@@ -151,12 +151,16 @@ const form = document.querySelector('form');
 
     
     //  MAIN FUNCTION
- 
+    let randMain = numRandom();
     form.addEventListener('submit' , e =>{
         
         e.preventDefault();
         
-        testEmpty();
+        if (testEmpty()) 
+        {
+            numCB(randMain);
+        }
+        
         
         
 
@@ -165,7 +169,7 @@ const form = document.querySelector('form');
 
 // ----------------------------------------------------------------
 
-// sTimer : a function that takes a truthy value to start, and an untruthy value to stop
+// sTimer : a function that takes a "truthy value" to Start, and an "untruthy value" to Stop
 const sTimer =(comm) => {
     if (comm) {
     
