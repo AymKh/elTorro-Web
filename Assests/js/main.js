@@ -194,6 +194,7 @@ const timer = document.getElementById("tmr");
                 }else if (triz == 10){
                     table.innerHTML += `<tr class="red"> <td style ="font-weight:bold;">${userTry.value}</td> <td>C : ${testCows}</td> <td>B : ${testBulls}</td> <td>A :${triz}</td></tr>`;
 			userTry.setAttribute("disabled", "");
+			sTimer(0);
                 }else {
                     table.innerHTML += `<tr > <td style ="font-weight:bold;">${userTry.value}</td> <td>C : ${testCows}</td> <td>B : ${testBulls}</td> <td>A :${triz}</td></tr>`;
                 }
