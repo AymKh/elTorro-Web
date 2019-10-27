@@ -230,7 +230,7 @@ function newGame() {
             clearInterval(startTimer);
         }
     }
-return console.log(randMain, triz);
+return console.log(randMain);
 };
 
 // -------------------------------------------------------------
