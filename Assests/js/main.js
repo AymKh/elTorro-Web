@@ -1,12 +1,12 @@
 // getting DOM selectors
-const userTry = document.getElementById("userTry");
-const errorBox = document.getElementById("errorBox");
-const display = document.getElementById('display');
-const table = document.querySelector('#display > table');
-const form = document.querySelector('form');
-const timer = document.getElementById("tmr");
+const userTry = document.querySelector("#userTry");
+const errorBox = document.querySelector("#errorBox");
+const display = document.querySelector("#display");
+const table = document.querySelector("#display > table");
+const form = document.querySelector("form");
+const timer = document.querySelector("#tmr");
 const menu = document.querySelector(".menu");
-const ngBtn = document.querySelector(".newGame");
+const ngBtn = document.querySelector(".new-game");
 
 //userTry testing
 
@@ -153,16 +153,20 @@ function testForm() {
     } else {
         return true;
     }
-
 }
 
+// initial values [not private at all :( ]
+let randMain =0;
+let triz = 0;
 //  MAIN FUNCTION
 function newGame() {
     console.log("a new game has started");
+
     table.innerHTML ="";
     userTry.removeAttribute("disabled");
-    let randMain = numRandom();
-    let triz = 0;
+    randMain = numRandom();
+    triz = 0;
+    timer.innerHTML = "00 : 00";
     let testCows = numC(randMain);
     let testBulls = numB(randMain);
     form.addEventListener('submit', e => {
@@ -187,6 +191,7 @@ function newGame() {
                     table.innerHTML += `<tr class="red"> <td style ="font-weight:bold;">${userTry.value}</td> <td>C : ${testCows}</td> <td>B : ${testBulls}</td> <td>A :${triz}</td></tr>`;
                     userTry.setAttribute("disabled", "");
                     sTimer(0);
+                    menu.style.display='block';
                 } else {
                     table.innerHTML += `<tr > <td style ="font-weight:bold;">${userTry.value}</td> <td>C : ${testCows}</td> <td>B : ${testBulls}</td> <td>A :${triz}</td></tr>`;
                 }
@@ -203,45 +208,39 @@ function newGame() {
     });
 
 
+// sTimer : a function that takes a "truthy value" to Start, and an "untruthy value" to Stop
+const sTimer = (comm) => {
+    if (comm) {
 
+        let secs = 0;
+        let mins = 0;
 
+        startTimer = setInterval(() => {
+            secs++;
+            formTimer = ("0" + mins).slice(-2) + " : " + ("0" + secs).slice(-2);;
+            // console.log( formTimer );
 
-    // ----------------------------------------------------------------
-
-    // sTimer : a function that takes a "truthy value" to Start, and an "untruthy value" to Stop
-    const sTimer = (comm) => {
-        if (comm) {
-
-            let secs = 0;
-            let mins = 0;
-
-            startTimer = setInterval(() => {
-                secs++;
-                formTimer = ("0" + mins).slice(-2) + " : " + ("0" + secs).slice(-2);;
-                // console.log( formTimer );
-
-                timer.innerHTML = formTimer;
-                if (secs == 59) {
-                    mins++;
-                    secs = -1
-                }
-            }, 1000);
-        } else {
-            clearInterval(startTimer);
-        }
+            timer.innerHTML = formTimer;
+            if (secs == 59) {
+                mins++;
+                secs = -1
+            }
+        }, 1000);
+    } else {
+        clearInterval(startTimer);
     }
+}
 return console.log(randMain);
 };
 
 // -------------------------------------------------------------
 // Menu display
-    // the div selectors for the div.menu elements
-    
-   
 
+    // New Game button
     ngBtn.addEventListener("click", e=> {
         e.preventDefault();
         
         newGame();
         menu.style.display ='none';
     });
+    

@@ -2,6 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 body{
@@ -9,12 +10,14 @@ body{
     font-size: 16px;
     line-height: 1.7;
     /* overflow: hidden; */
+    background-color: rgba(0,0,0,.4);
+    
 }
 /* keeps everything in the center */
 .container{
     max-width:700px;
     height: 90vh;
-    /* background: red; */
+    background: #e5e5e5;
     margin: 50px auto;
 }
 
@@ -114,6 +117,7 @@ input[type="text"]{
 }
 
 .menu {
+    background-color: rgba(0,0,0,.4);
     position: fixed;
     z-index: 1;
     left: 0;
@@ -123,15 +127,35 @@ input[type="text"]{
     overflow: auto;
 }
 .menu-content {
-    background-color: #e5e5e5;
+    background-color: #a5a5a5;
     margin: 14% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border: 1px solid darkred;
+    max-width:700px;
     height: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.menu-content a,label {
+    text-decoration: none;
+    font-size: 1.6em;
+    color: #000;
+}
+.menu-content a:hover {
+    font-size: 1.8em;
+    color: #ee5e5e;
 }
 
-
+.menu-content p {
+    font-size: 1.6em;
+}
+.chn-btn {
+    height: 10%;
+    translateY: 10px;
+    /* width: 100%; */
+}
 
 
 
