@@ -29,19 +29,28 @@
         <!-- end of container -->
     </div>
 
-
     <div class="menu">
-        <div class="menu-content">
-            <p class="menu-msg">You're logged in as <span class="user-name">Guest</span></p>
-            <a href='#' class="new-game">New game</a>
-            <a href="#" class="help-btn">Help</a>
-            <div class="change-name">
-                <label class="chn-label">Change Name</label>
-                <input type="text" class="chn-input">
-                <button class="chn-btn">submit</button>
-            </div>
+        <div class="menu-header">
+            <h3>Cows & Bulls</h3>
+            <p>elToro for web</p>
         </div>
+
+        <div class="menu-body">
+            <div class="change-name">
+                <form action="">
+                    <input type="text" placeholder="Player">
+                    <input type="submit" value="Set Name">
+                </form>
+            </div>
+
+            <p>You're logged in as <span>NoOne</span></p>
+            <a href="#" class="new-game">New game</a>
+            <a href="#" class="help-btn">Help</a>            
+        </div>
+        <!-- end of menu -->
     </div>
+    <div class="overlay"></div>
+    <button class="pause">Main Menu</button>
 
 </body>
 </html>

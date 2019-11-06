@@ -7,6 +7,8 @@ const form = document.querySelector("form");
 const timer = document.querySelector("#tmr");
 const menu = document.querySelector(".menu");
 const ngBtn = document.querySelector(".new-game");
+const overlay = document.querySelector('.overlay');
+const pauseButton = document.querySelector('.pause');
 
 //userTry testing
 
@@ -166,7 +168,7 @@ function newGame() {
     userTry.removeAttribute("disabled");
     randMain = numRandom();
     triz = 0;
-    timer.innerHTML = "00 : 00";
+    timer.innerHTML = "00 : 00";//lol --_-- u serious
     let testCows = numC(randMain);
     let testBulls = numB(randMain);
     form.addEventListener('submit', e => {
@@ -193,7 +195,7 @@ function newGame() {
                     sTimer(0);
                     menu.style.display='block';
                 } else {
-                    table.innerHTML += `<tr > <td style ="font-weight:bold;">${userTry.value}</td> <td>C : ${testCows}</td> <td>B : ${testBulls}</td> <td>A :${triz}</td></tr>`;
+                    table.innerHTML += `<tr class="white"> <td style ="font-weight:bold;">${userTry.value}</td> <td>C : ${testCows}</td> <td>B : ${testBulls}</td> <td>A :${triz}</td></tr>`;
                 }
                 // console.log(`tries : ${triz}`)
 
@@ -209,27 +211,27 @@ function newGame() {
 
 
 // sTimer : a function that takes a "truthy value" to Start, and an "untruthy value" to Stop
-const sTimer = (comm) => {
-    if (comm) {
+    const sTimer = (comm) => {
+        if (comm) {
 
-        let secs = 0;
-        let mins = 0;
+            let secs = 0;
+            let mins = 0;
 
-        startTimer = setInterval(() => {
-            secs++;
-            formTimer = ("0" + mins).slice(-2) + " : " + ("0" + secs).slice(-2);;
-            // console.log( formTimer );
+            startTimer = setInterval(() => {
+                secs++;
+                formTimer = ("0" + mins).slice(-2) + " : " + ("0" + secs).slice(-2);;
+                // console.log( formTimer );
 
-            timer.innerHTML = formTimer;
-            if (secs == 59) {
-                mins++;
-                secs = -1
-            }
-        }, 1000);
-    } else {
-        clearInterval(startTimer);
+                timer.innerHTML = formTimer;
+                if (secs == 59) {
+                    mins++;
+                    secs = -1
+                }
+            }, 1000);
+        } else {
+            clearInterval(startTimer);
+        }
     }
-}
 return console.log(randMain);
 };
 
@@ -242,5 +244,12 @@ return console.log(randMain);
         
         newGame();
         menu.style.display ='none';
+        overlay.style.display ="none";
+    });
+
+    pauseButton.addEventListener("click", e=> {
+        e.preventDefault();
+        
+        document.location.reload(true)//for now , it just refreshes the page to reset everything
     });
     
